@@ -1,2 +1,2 @@
 # OpenGL-byhj
-Myself OpenGL Example Code
+My OpenGL Example Code
