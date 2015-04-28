@@ -46,6 +46,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SOIL.lib; glfw3.lib;opengl32.lib;glew32.lib;assimp.lib;OgreMain_d.lib;OgreOverlay_d.lib;OIS_d.lib;d3d11.lib;d3dcompiler.lib;d3dx11d.lib;d3dx9d.lib;dxerr.lib;dxguid.lib;winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -62,20 +63,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="glException.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="byhj.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="glException.h" />
+    <ClInclude Include="light.h" />
     <ClInclude Include="mesh.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="textFileRead.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="gameTime.h" />
+    <ClInclude Include="vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test.frag" />
     <None Include="test.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="container.jpg" />
+    <Image Include="wall.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

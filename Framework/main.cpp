@@ -46,7 +46,7 @@ void TestApp::init_windowInfo()
 
 void TestApp::render()
 {
-	static const GLfloat red[] = {1.0f, 0.0f, 0.0f, 1.0f };  //清除指定的缓存
+	static const GLfloat red[] = {0.3f, 0.3f, 0.3f, 1.0f };  //清除指定的缓存
 	glClearBufferfv(GL_COLOR, 0, red);
 	glUseProgram(program);
 }
@@ -62,6 +62,7 @@ void TestApp::init_buffer()
 
 void TestApp::init_texture()
 {
+   loadTexture("wall.jpg");
 }
 
 void TestApp::init_vertexArray()

@@ -1,7 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-
+#include "model.h"
 #include "shader.h"
 #include "glException.h"
 
@@ -26,7 +26,6 @@
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "freeglut.lib")
 #pragma comment(lib, "glfw3.lib")
-#pragma comment(lib, "SOIL.lib")
 #pragma comment(lib, "assimp.lib")
 
 #endif //  COMMON_H
