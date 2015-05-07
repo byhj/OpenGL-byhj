@@ -1,5 +1,8 @@
 #include "common.h"
+#include <random>
 
+std::default_random_engine e;
+std::uniform_real_distribution<double> u(0, 1);
 
 class CubeApp: public byhj::Application
 {
@@ -21,6 +24,7 @@ public:
 	{
 		GLuint mv_loc;
 		GLuint proj_loc;
+		GLuint diffuse_loc;
 	}uniform;
 private:
 	GLuint program, vao, ebo, vbo;
@@ -49,12 +53,14 @@ void CubeApp::init_shader()
 	program = CubeShader.get_program();
 	uniform.mv_loc = glGetUniformLocation(program, "mv");
 	uniform.proj_loc = glGetUniformLocation(program, "proj");
+	uniform.diffuse_loc = glGetUniformLocation(program, "diffuse_material");
 }
 
 void CubeApp::init_windowInfo()
 {
 	windowInfo.title = "Cube Window";
 }
+static int c = 0;
 
 void CubeApp::render()
 {
@@ -74,6 +80,10 @@ void CubeApp::render()
 	glm::mat4 mv = view * model;
 	glUniformMatrix4fv(uniform.mv_loc, 1, GL_FALSE, &mv[0][0]);
 	glUniformMatrix4fv(uniform.proj_loc, 1, GL_FALSE, &proj[0][0]);
+	  
+	if ((c % 30) == 0)
+	   glUniform3f(uniform.diffuse_loc, u(e), u(e), u(e));
+    ++c;
 	glUseProgram(program);
 	Sphere.Render(program);
 }

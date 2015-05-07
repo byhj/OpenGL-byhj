@@ -12,6 +12,7 @@ in VS_OUT
 uniform vec3 diffuse_material = vec3(0.5, 0.2, 0.7);
 uniform float power = 64.0f;
 uniform vec3 specular_material = vec3(0.7);
+
 void main()
 {    
     vec3 N = normalize(fs_in.N);
