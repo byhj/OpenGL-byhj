@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cube", "Cube\Cube.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Texture2D", "Texture2D\Texture2D.vcxproj", "{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Phong", "Phong\Phong.vcxproj", "{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +33,10 @@ Global
 		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Debug|Win32.Build.0 = Debug|Win32
 		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Release|Win32.ActiveCfg = Release|Win32
 		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Release|Win32.Build.0 = Release|Win32
+		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Debug|Win32.Build.0 = Debug|Win32
+		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Release|Win32.ActiveCfg = Release|Win32
+		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

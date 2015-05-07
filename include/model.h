@@ -27,8 +27,12 @@ class Model
 	public:
 		Model() {}
 		~Model() {}
-		
-		void Render(GLuint program);
+		void Render(GLuint program)
+		{
+			for (GLuint i = 0; i < Meshes.size(); i++)
+				Meshes[i].Render(program);
+		}
+
 		void loadModel(std::string path);
 		void processNode(aiNode* node, const aiScene* scene);
 		Mesh processMesh(aiMesh* mesh, const aiScene* scene);
@@ -40,7 +44,6 @@ class Model
 		std::vector<Texture> textures_loaded;	// Stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
 
 }; // class
-
 
 std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName)
 {
@@ -74,14 +77,6 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType 
 	return textures;
 }
 
-void Model::Render(GLuint program)
-{
-    // render each mesh of model
-
-	for (GLuint i = 0; i < Meshes.size(); i++)
-		Meshes[i].Render(program);
-}
-
 void Model::loadModel(std::string path)
 {
    //load model to assimp
@@ -95,6 +90,7 @@ void Model::loadModel(std::string path)
     }
 	directory = path.substr(0, path.find_last_of('/'));
 	processNode(scene->mRootNode, scene);
+	int i =1 ;
 }
 
 // Each scene include many model ,each model include many mesh
