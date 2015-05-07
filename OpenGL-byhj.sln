@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "Framework\Framework.vcxproj", "{CD038170-E411-4968-9567-4FD9880100A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Triangle", "Triangle\Triangle.vcxproj", "{A814767F-BD38-4B7F-A99C-5727BE8601C6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cube", "Cube\Cube.vcxproj", "{CDF0BA0F-4DB2-426B-8B79-A0C96647CE74}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Texture2D", "Texture2D\Texture2D.vcxproj", "{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +19,18 @@ Global
 		{CD038170-E411-4968-9567-4FD9880100A3}.Debug|Win32.Build.0 = Debug|Win32
 		{CD038170-E411-4968-9567-4FD9880100A3}.Release|Win32.ActiveCfg = Release|Win32
 		{CD038170-E411-4968-9567-4FD9880100A3}.Release|Win32.Build.0 = Release|Win32
+		{A814767F-BD38-4B7F-A99C-5727BE8601C6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A814767F-BD38-4B7F-A99C-5727BE8601C6}.Debug|Win32.Build.0 = Debug|Win32
+		{A814767F-BD38-4B7F-A99C-5727BE8601C6}.Release|Win32.ActiveCfg = Release|Win32
+		{A814767F-BD38-4B7F-A99C-5727BE8601C6}.Release|Win32.Build.0 = Release|Win32
+		{CDF0BA0F-4DB2-426B-8B79-A0C96647CE74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CDF0BA0F-4DB2-426B-8B79-A0C96647CE74}.Debug|Win32.Build.0 = Debug|Win32
+		{CDF0BA0F-4DB2-426B-8B79-A0C96647CE74}.Release|Win32.ActiveCfg = Release|Win32
+		{CDF0BA0F-4DB2-426B-8B79-A0C96647CE74}.Release|Win32.Build.0 = Release|Win32
+		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Debug|Win32.Build.0 = Debug|Win32
+		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Release|Win32.ActiveCfg = Release|Win32
+		{B5CB2225-C8B6-4B65-9F5E-CF532995A9FB}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

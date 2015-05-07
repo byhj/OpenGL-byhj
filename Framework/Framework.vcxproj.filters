@@ -71,12 +71,4 @@
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="container.jpg">
-      <Filter>Header Files</Filter>
-    </Image>
-    <Image Include="wall.jpg">
-      <Filter>Header Files</Filter>
-    </Image>
-  </ItemGroup>
 </Project>

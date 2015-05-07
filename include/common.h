@@ -3,7 +3,6 @@
 
 #include "model.h"
 #include "shader.h"
-#include "glException.h"
 
 //gl header
 #include <gl/glew.h>
@@ -22,5 +21,10 @@
 
 #include "byhj.h"
 
+//link the lib
+#pragma comment(lib, "glew32.lib")
+#pragma comment(lib, "freeglut.lib")
+#pragma comment(lib, "glfw3.lib")
+#pragma comment(lib, "assimp.lib")
 
 #endif //  COMMON_H
