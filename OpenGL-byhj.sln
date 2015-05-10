@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Texture2D", "Texture2D\Text
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Phong", "Phong\Phong.vcxproj", "{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tessellation", "Tessellation\Tessellation.vcxproj", "{ABCBF7C7-AB42-4A5C-B0D2-29A969AB5A68}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "Geometry\Geometry.vcxproj", "{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +41,14 @@ Global
 		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Debug|Win32.Build.0 = Debug|Win32
 		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Release|Win32.ActiveCfg = Release|Win32
 		{E5F2FD56-9086-44E4-988C-7A3D1D385D5E}.Release|Win32.Build.0 = Release|Win32
+		{ABCBF7C7-AB42-4A5C-B0D2-29A969AB5A68}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ABCBF7C7-AB42-4A5C-B0D2-29A969AB5A68}.Debug|Win32.Build.0 = Debug|Win32
+		{ABCBF7C7-AB42-4A5C-B0D2-29A969AB5A68}.Release|Win32.ActiveCfg = Release|Win32
+		{ABCBF7C7-AB42-4A5C-B0D2-29A969AB5A68}.Release|Win32.Build.0 = Release|Win32
+		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Debug|Win32.Build.0 = Debug|Win32
+		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Release|Win32.ActiveCfg = Release|Win32
+		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
