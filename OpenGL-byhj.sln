@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "Geometry\Geomet
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TessTriangle", "TessTriangle\TessTriangle.vcxproj", "{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TessQuad", "TessQuad\TessQuad.vcxproj", "{623F1A76-7CDD-4AC3-A411-7DCD1D405EB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -61,6 +63,10 @@ Global
 		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Debug|Win32.Build.0 = Debug|Win32
 		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Release|Win32.ActiveCfg = Release|Win32
 		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Release|Win32.Build.0 = Release|Win32
+		{623F1A76-7CDD-4AC3-A411-7DCD1D405EB4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{623F1A76-7CDD-4AC3-A411-7DCD1D405EB4}.Debug|Win32.Build.0 = Debug|Win32
+		{623F1A76-7CDD-4AC3-A411-7DCD1D405EB4}.Release|Win32.ActiveCfg = Release|Win32
+		{623F1A76-7CDD-4AC3-A411-7DCD1D405EB4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
