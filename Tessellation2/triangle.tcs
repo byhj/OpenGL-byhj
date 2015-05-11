@@ -1,0 +1,25 @@
+#version 430 core                                                                 
+                                                                                  
+layout (vertices = 3) out;                                                        
+
+in vec3 vPosition[];  //三个顶点组成一个patch
+out vec3 tcPosition[];
+
+uniform float TessLevelInner;
+uniform float TessLevelOuter;                                                     
+                                                                         
+void main(void)                                                                   
+{                                                                                                                                                                                                                    
+    if (gl_InvocationID == 0)   
+   {                                                                                                                            
+        gl_TessLevelInner[0] = TessLevelInner;                                                   
+        gl_TessLevelOuter[0] = TessLevelOuter;                                             
+        gl_TessLevelOuter[1] = TessLevelOuter;                                             
+        gl_TessLevelOuter[2] = TessLevelOuter;                                                                                         
+    }  
+
+	 //gl_InvocationId为当前patch的顶点索引
+    tcPosition[gl_InvocationID] = vPosition[gl_InvocationID] ;                                                                                                                                                            
+}   
+
+
