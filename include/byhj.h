@@ -34,7 +34,7 @@ namespace byhj
 	protected:
 		struct WindowInfo
 		{
-			WindowInfo():title("byhj--OpenGL Example"), Width(1200), Height(800), posX(400), posY(100){}
+			WindowInfo():title("byhj--OpenGL Example"), Width(1200), Height(800), posX(100), posY(50){}
 			std::string title;
 			int Width;
 			int Height;
@@ -93,6 +93,7 @@ void Application::run(byhj::Application *the_app)
 	std::cout << "GL Version (integer) : " << major << "." << minor << std::endl;  
 	std::cout << "GLSL Version : " << glslVersion << std::endl;    
 	std::cout << "------------------------------------------------------------------------------" << std::endl;
+	
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major); //opengl 4.3
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //using opengl core file

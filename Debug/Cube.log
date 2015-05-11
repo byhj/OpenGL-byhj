@@ -1,0 +1,13 @@
+﻿  {{xgTaskID=0000000B}}
+  TextureManager.cpp
+  {{xgTaskID=00000000}}
+  {{xgTaskID=0000000C}}
+  Cube.cpp
+d:\vs2012\opengl\opengl-byhj\include\mesh.h(64): warning C4244: 'argument' : conversion from 'GLuint' to 'GLfloat', possible loss of data
+c:\program files (x86)\windows kits\8.0\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
+          c:\program files (x86)\microsoft visual studio 11.0\vc\include\gl\glfw3.h(96) : see previous definition of 'APIENTRY'
+d:\vs2012\opengl\opengl-byhj\cube\cube.cpp(112): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+  {{xgTaskID=00000000}}
+  {{xgTaskID=00000015}}
+LINK : fatal error LNK1104: cannot open file 'D:\VS2012\OpenGL\OpenGL-byhj\Debug\TextureManager.obj'
+  {{xgTaskID=00000000}}

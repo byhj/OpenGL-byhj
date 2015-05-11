@@ -64,11 +64,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\include\TextureManager.cpp" />
     <ClCompile Include="Cube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cube.frag" />
     <None Include="cube.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

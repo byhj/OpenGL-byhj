@@ -20,6 +20,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "byhj.h"
+#include "TextureManager.h"
 
 //link the lib
 #pragma comment(lib, "glew32.lib")

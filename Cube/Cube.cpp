@@ -2,33 +2,49 @@
 
 static const GLfloat VertexData[] = 
 {
-	-1.0f, -1.0f, -1.0f,
-	-1.0f,  1.0f, -1.0f,
-	 1.0f, -1.0f, -1.0f,
-	 1.0f,  1.0f, -1.0f,
-	 1.0f, -1.0f,  1.0f,
-	 1.0f,  1.0f,  1.0f,
-	-1.0f, -1.0f,  1.0f,
-	-1.0f,  1.0f,  1.0f,
+	-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
+	0.5f , -0.5f, -0.5f, 1.0f, 0.0f,
+	0.5f , 0.5f, -0.5f, 1.0f, 1.0f,
+	0.5f , 0.5f, -0.5f, 1.0f, 1.0f,
+	-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
+
+	-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+	0.5f , -0.5f, 0.5f, 1.0f, 0.0f,
+	0.5f , 0.5f, 0.5f, 1.0f, 1.0f,
+	0.5f , 0.5f, 0.5f, 1.0f, 1.0f,
+	-0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
+	-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+
+	-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+	-0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+	-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+	-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+	-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+
+	0.5f , 0.5f, 0.5f, 1.0f, 0.0f,
+	0.5f , 0.5f, -0.5f, 1.0f, 1.0f,
+	0.5f , -0.5f, -0.5f, 0.0f, 1.0f,
+	0.5f , -0.5f, -0.5f, 0.0f, 1.0f,
+	0.5f , -0.5f, 0.5f, 0.0f, 0.0f,
+	0.5f , 0.5f, 0.5f, 1.0f, 0.0f,
+
+	-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+	0.5f , -0.5f, -0.5f, 1.0f, 1.0f,
+	0.5f , -0.5f, 0.5f, 1.0f, 0.0f,
+	0.5f , -0.5f, 0.5f, 1.0f, 0.0f,
+	-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+	-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+
+	-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
+	0.5f , 0.5f, -0.5f, 1.0f, 1.0f,
+	0.5f , 0.5f, 0.5f, 1.0f, 0.0f,
+	0.5f , 0.5f, 0.5f, 1.0f, 0.0f,
+	-0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
+	-0.5f, 0.5f, -0.5f, 0.0f, 1.0f
 };
 
-static const GLushort ElementData[] =
-{
-	0, 1, 2,
-	2, 1, 3,
-	2, 3, 4,
-	4, 3, 5,
-
-	4, 5, 6,
-	6, 5, 7,
-	6, 7, 0,
-	0, 7, 1,
-
-	6, 0, 2,
-	2, 4, 6,
-	7, 5, 3,
-	7, 3, 1
-};
 
 class CubeApp: public byhj::Application
 {
@@ -49,10 +65,12 @@ public:
     struct	Uniform 
 	{
 		GLuint mvp_loc;
+		GLuint tex_loc;
 	}uniform;
 private:
 	GLuint program, vao, ebo, vbo;
 	Shader CubeShader;
+	GLuint texture;
 };
 
 GL_MAIN(CubeApp);
@@ -75,6 +93,8 @@ void CubeApp::init_shader()
 	CubeShader.link();
 	program = CubeShader.get_program();
 	uniform.mvp_loc = glGetUniformLocation(program, "mvp");
+	uniform.tex_loc = glGetUniformLocation(program, "tex");
+	glUniform1i(uniform.tex_loc, 0);
 }
 
 void CubeApp::init_windowInfo()
@@ -95,15 +115,16 @@ void CubeApp::render()
 	
 	//near and far data is accroding to the camera pos
 	glm::mat4 proj = glm::perspective(45.0f, getAspect(), 0.1f, 1000.0f);
-	glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -1.0f))
+	glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f))
 		            * glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 1.0f, 0.0f) );
 	glm::mat4 mvp = proj * view * model;
 	glUniformMatrix4fv(uniform.mvp_loc, 1, GL_FALSE, &mvp[0][0]);
 
 	glUseProgram(program);
 	glBindVertexArray(vao);
-	//glDrawArrays(GL_LINES, 0, 8);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
+	TextureManager::Inst()->BindTexture(texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void CubeApp::shutdown()
@@ -117,15 +138,22 @@ void CubeApp::init_buffer()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(VertexData), VertexData, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glGenBuffers(1, &ebo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(ElementData), ElementData, GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 void CubeApp::init_texture()
 {
+	texture = SOIL_load_OGL_texture
+		(
+		"../media/texture/crate.tga",
+		SOIL_LOAD_AUTO,
+		SOIL_CREATE_NEW_ID,
+		SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+		);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glGenerateMipmap(GL_TEXTURE_2D);
 
 }
 
@@ -135,7 +163,8 @@ void CubeApp::init_vertexArray()
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, 0);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, BUFFER_OFFSET(sizeof(GLfloat) * 3) );
 	glBindVertexArray(0);
 }

@@ -18,6 +18,9 @@
     <ClCompile Include="Cube.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\include\TextureManager.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cube.vert">
@@ -26,5 +29,10 @@
     <None Include="cube.frag">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
