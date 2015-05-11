@@ -1,0 +1,3 @@
+﻿  Triangle-Tessellation.cpp
+d:\vs2012\opengl\opengl-byhj\tesstriangle\triangle-tessellation.cpp(153): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+  TessTriangle.vcxproj -> D:\VS2012\OpenGL\OpenGL-byhj\Debug\TessTriangle.exe

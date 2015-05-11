@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{15CC5E39-2EB8-479E-83B1-E099F9E260F2}</ProjectGuid>
-    <RootNamespace>Tessellation2</RootNamespace>
+    <ProjectGuid>{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}</ProjectGuid>
+    <RootNamespace>TessTriangle</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

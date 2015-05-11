@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tessellation", "Tessellatio
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "Geometry\Geometry.vcxproj", "{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tessellation2", "Tessellation2\Tessellation2.vcxproj", "{15CC5E39-2EB8-479E-83B1-E099F9E260F2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TessTriangle", "TessTriangle\TessTriangle.vcxproj", "{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +57,10 @@ Global
 		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Debug|Win32.Build.0 = Debug|Win32
 		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Release|Win32.ActiveCfg = Release|Win32
 		{DBA5B174-0615-4B99-AE9A-B5328C51DAD2}.Release|Win32.Build.0 = Release|Win32
-		{15CC5E39-2EB8-479E-83B1-E099F9E260F2}.Debug|Win32.ActiveCfg = Debug|Win32
-		{15CC5E39-2EB8-479E-83B1-E099F9E260F2}.Debug|Win32.Build.0 = Debug|Win32
-		{15CC5E39-2EB8-479E-83B1-E099F9E260F2}.Release|Win32.ActiveCfg = Release|Win32
-		{15CC5E39-2EB8-479E-83B1-E099F9E260F2}.Release|Win32.Build.0 = Release|Win32
+		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Debug|Win32.Build.0 = Debug|Win32
+		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Release|Win32.ActiveCfg = Release|Win32
+		{61FEAD03-37B2-4D3B-9CD4-3C663127F7E6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
