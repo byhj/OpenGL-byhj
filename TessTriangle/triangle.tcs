@@ -5,8 +5,8 @@ layout (vertices = 3) out;
 in vec3 vPosition[];  //三个顶点组成一个patch
 out vec3 tcPosition[];
 
-uniform float TessLevelInner;
-uniform float TessLevelOuter;                                                     
+uniform int TessLevelInner;
+uniform int TessLevelOuter;                                                     
                                                                          
 void main(void)                                                                   
 {                                                                                                                                                                                                                    

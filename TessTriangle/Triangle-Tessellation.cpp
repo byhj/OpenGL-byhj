@@ -1,3 +1,5 @@
+#include <AntTweakBar.h>
+
 #include <GL/glew.h>
 #include <gl/freeglut.h>
 #include <iostream>
@@ -5,6 +7,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
+
 
 using namespace std;
 
@@ -25,9 +29,12 @@ typedef struct {
 } Shaderuniform_loc;
 
 static Shaderuniform_loc uniform_loc;  //uniform elements
-static float TessLevelInner;
-static float TessLevelOuter;
+static int TessLevelInner;
+static int TessLevelOuter;
 static GLuint Program;
+static double fps = 0.0;
+static float aspect = 1.0f;
+
 Shader TessellationShader("Triangle Tessellation Shader");
 
 static  const GLuint ElementData[] = {
@@ -154,28 +161,43 @@ void display(void)
     static float Theta = 0;
     Theta = elapsedMicroseconds * RadiansPerMicrosecond;
 
-	glm::mat4 proj_matrix = glm::perspective(45.0f, 720.0f / 640.0f, 0.1f, 1000.0f);
+	glm::mat4 proj_matrix = glm::perspective(45.0f, aspect, 0.1f, 1000.0f);
 	glm::mat4 mv_matrix = glm::lookAt(glm::vec3(0.0, 0.0, 3.0) , glm::vec3(0.0f, 0.0f, 0.0), glm::vec3(0.0, 1.0, 0.0)) 
                           * glm::rotate(glm::mat4(1.0), Theta, glm::vec3(1.0f, 0.0f, 0.0f)) ;
 
 	glUniformMatrix4fv(uniform_loc.Projection, 1, 0, glm::value_ptr(proj_matrix));
 	glUniformMatrix4fv(uniform_loc.ModelView, 1, 0, glm::value_ptr(mv_matrix));
-	glUniform1f(uniform_loc.TessLevelInner, TessLevelInner);
-	glUniform1f(uniform_loc.TessLevelOuter, TessLevelOuter);
-    glPolygonMode(GL_FRONT_AND_BACK, wireframe_mode ? GL_LINE : GL_FILL);
+	glUniform1i(uniform_loc.TessLevelInner, TessLevelInner);
+	glUniform1i(uniform_loc.TessLevelOuter, TessLevelOuter);
+  //  glPolygonMode(GL_FRONT_AND_BACK, wireframe_mode ? GL_LINE : GL_FILL);
 
     glPatchParameteri(GL_PATCH_VERTICES, 3);  //每三个点一个patch
     glDrawElements(GL_PATCHES, sizeof(ElementData) / sizeof(GLuint), GL_UNSIGNED_INT, 0);
+	static int frame = 0;
+	frame++;
+	float time = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
+	static float timebase = 0.0;
+	if (time - timebase > 1.0) {
+		fps = frame;
+		timebase = time;		
+		frame = 0;
+	}
+	glBindVertexArray(0);
+	glUseProgram(0);
+
+	// Draw tweak bars
+	TwDraw();
+
 
 	glutSwapBuffers(); //强制绘图，去掉会变白色
 
-	glBindVertexArray(0);
-	glUseProgram(0);
 }
 
 void reshape(int w, int h) 
 {
 	glViewport(0, 0, w, h);  //视口调整
+	aspect = (float)w / h;
+	TwWindowSize(w, h);
 }
 
 void idle(void)
@@ -202,6 +224,8 @@ void SpecialKeys(int key, int x, int y)
 int main(int argc, char ** argv)
 {
 
+	TwBar *bar; // Pointer to the tweak bar
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE); //显示模式，重要
 	glutInitWindowPosition(200, 0);
@@ -212,7 +236,30 @@ int main(int argc, char ** argv)
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutIdleFunc(idle);
-	glutSpecialFunc(SpecialKeys);
+
+	TwInit(TW_OPENGL, NULL);
+	glutMouseFunc((GLUTmousebuttonfun)TwEventMouseButtonGLUT);
+	glutMotionFunc((GLUTmousemotionfun)TwEventMouseMotionGLUT);
+	glutPassiveMotionFunc((GLUTmousemotionfun)TwEventMouseMotionGLUT);
+	glutKeyboardFunc((GLUTkeyboardfun)TwEventKeyboardGLUT);
+	glutSpecialFunc((GLUTspecialfun)TwEventSpecialGLUT);
+	TwGLUTModifiersFunc(glutGetModifiers);
+
+	// Create a tweak bar
+	bar = TwNewBar("TessellationBar");
+	TwDefine("Options for Tesslation."); // Message added to the help bar.
+	TwDefine(" TweakBar size='200 400' color='96 216 224' "); // change default tweak bar size and color
+	
+	TwAddVarRW(bar, "TessLevelInner", TW_TYPE_INT32, &TessLevelInner, 
+		" min=1 max=10 step=1 keyIncr=z keyDecr=Z help='Scale the object (1=original size).' ");
+	
+	TwAddVarRW(bar, "TessLevelOuter", TW_TYPE_INT32, &TessLevelOuter, 
+		" min=1 max=10 step=1 keyIncr=z keyDecr=Z help='Scale the object (1=original size).' ");
+	
+	TwAddVarRO(bar, "time", TW_TYPE_DOUBLE, &fps, " label='FPS:' precision=1 help='Time (in seconds).' ");         
+
+
 	glutMainLoop(); //循环调用注册函数display
+
 	return 0;
 }
