@@ -1,0 +1,2 @@
+D:/GitHub/OpenGL/OpenGL-byhj/include/glm/build/CMakeFiles/ALL_BUILD.dir
+D:/GitHub/OpenGL/OpenGL-byhj/include/glm/build/CMakeFiles/ZERO_CHECK.dir
